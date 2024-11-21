@@ -552,6 +552,10 @@ func TestUnitPopulateClusterDataDesc(t *testing.T) {
 	server := mockHttpServer(configPath, config, t)
 
 	clusterConfigUrl := server.URL + configPath
+	poolName := "PoolName"
+	poolAddress := "address"
+	poolScheme := "scheme"
+
 	defer server.Close()
 
 	contents := []*openapi.DescribeClusterResponseContent{
@@ -565,6 +569,14 @@ func TestUnitPopulateClusterDataDesc(t *testing.T) {
 			ClusterConfiguration: openapi.ClusterConfigurationStructure{
 				Url: &clusterConfigUrl,
 			},
+            LoginNodes: []openapi.LoginNodesPool{
+                {
+                    Status: "someState",
+                    PoolName: &poolName,
+                    Address: &poolAddress,
+                    Scheme: &poolScheme,
+                },
+            },
 		},
 		{},
 	}
@@ -621,7 +633,7 @@ func TestUnitPopulateClusterDataDesc(t *testing.T) {
 		"tags":               types.ListNull(types.MapType{ElemType: types.StringType}),
 		"headNode":           types.MapNull(types.StringType),
 		"failures":           types.ListNull(types.MapType{ElemType: types.StringType}),
-		"loginNodes":         types.ListNull(types.ObjectType{AttrTypes: loginNodesObjectTypes}),
+		"loginNodes":         types.ListValue(types.ObjectType{AttrTypes: loginNodesObjectTypes}, contents[0].LoginNodes),
 	})
 	if err != nil {
 		t.Error(err)
