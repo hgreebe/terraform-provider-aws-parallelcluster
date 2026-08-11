@@ -1,17 +1,19 @@
 module github.com/aws-tf/terraform-provider-aws-parallelcluster
 
-go 1.21
+go 1.23.0
+
 toolchain go1.24.1
+
 require (
 	github.com/aws-tf/terraform-provider-aws-parallelcluster/internal/provider/openapi v0.0.0-00010101000000-000000000000
 	github.com/aws/aws-sdk-go-v2 v1.36.3
-    github.com/aws/aws-sdk-go-v2/config v1.29.13
+	github.com/aws/aws-sdk-go-v2/config v1.29.13
 	github.com/aws/aws-sdk-go-v2/service/apigateway v1.30.1
 	github.com/aws/aws-sdk-go-v2/service/cloudformation v1.59.1
 	github.com/aws/aws-sdk-go-v2/service/sts v1.33.18
-    github.com/hashicorp/terraform-plugin-docs v0.21.0
-    github.com/hashicorp/terraform-plugin-framework v1.14.1
-    github.com/hashicorp/terraform-plugin-go v0.26.0
+	github.com/hashicorp/terraform-plugin-docs v0.21.0
+	github.com/hashicorp/terraform-plugin-framework v1.14.1
+	github.com/hashicorp/terraform-plugin-go v0.26.0
 	github.com/hashicorp/terraform-plugin-log v0.9.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.36.1
 	github.com/hashicorp/terraform-plugin-testing v1.12.0
@@ -93,7 +95,7 @@ require (
 	golang.org/x/sync v0.12.0 // indirect
 	golang.org/x/sys v0.31.0 // indirect
 	golang.org/x/text v0.23.0 // indirect
-    golang.org/x/tools v0.22.0 // indirect
+	golang.org/x/tools v0.22.0 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20241015192408-796eee8c2d53 // indirect
 	google.golang.org/grpc v1.69.4 // indirect
